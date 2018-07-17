@@ -635,11 +635,11 @@ void *action(void *arg)
 							
 							TRACE(cout<<"Detach received "<<pkt.gtp_hdr.teid <<" s11:"<<s11_cteid_mme<<endl;)
 							
-							if(gettid(imsi) != pkt.gtp_hdr.teid)
+							/*if(gettid(imsi) != pkt.gtp_hdr.teid)
 							{
 									cout<<"GUTI not equal Detach acc:"<<imsi<<" "<<pkt.gtp_hdr.teid<<endl;
 									//exit(-1);
-							}	
+							}*/	
 							pkt.clear_pkt();
 							pkt.append_item(res);
 							pkt.prepend_gtp_hdr(2, 3, pkt.len, s11_cteid_mme);
@@ -778,13 +778,13 @@ int main(int argc, char *argv[])
 			td[i].max = 30000;
 		}
 
-		else if(i==1)
+		else if(i==2)
 		{
 			td[i].min = 30001;
 			td[i].max = 40000;
 		}
 
-		else if(i==1)
+		else if(i==3)
 		{
 			td[i].min = 40001;
 			td[i].max = 50000;
